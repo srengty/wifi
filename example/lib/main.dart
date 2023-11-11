@@ -62,20 +62,23 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Row(
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 child: Text('ssid'),
                 onPressed: _getWifiName,
               ),
               Offstage(
                 offstage: level == 0,
-                child: Image.asset(level == 0 ? 'images/wifi1.png' : 'images/wifi$level.png', width: 28, height: 21),
+                child: Image.asset(
+                    level == 0 ? 'images/wifi1.png' : 'images/wifi$level.png',
+                    width: 28,
+                    height: 21),
               ),
               Text(_wifiName),
             ],
           ),
           Row(
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                 child: Text('ip'),
                 onPressed: _getIP,
               ),
@@ -108,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
               password = value;
             },
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text('connection'),
             onPressed: connection,
           ),
@@ -117,7 +120,8 @@ class _MyHomePageState extends State<MyHomePage> {
     } else {
       return Column(children: <Widget>[
         ListTile(
-          leading: Image.asset('images/wifi${ssidList[index - 1].level}.png', width: 28, height: 21),
+          leading: Image.asset('images/wifi${ssidList[index - 1].level}.png',
+              width: 28, height: 21),
           title: Text(
             ssidList[index - 1].ssid,
             style: TextStyle(
